@@ -1,0 +1,30 @@
+{
+    "Binance":  {
+                    "addresses":  [
+                                      "0x28C6c06298d514Db089934071355E5743bf21d60",
+                                      "0x21a31Ee1afC51d94C2eFcCAa2092aD1028285549",
+                                      "0xbe0eb53f46cd790cd13851d5eff43d12404d33e8",
+                                      "0xf977814e90da44bfa03b6295a0616a897441acec",
+                                      "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+                                      "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+                                      "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+                                      "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+                                      "0x4976a4a02f38326660d17bf34b431dc6e2eb2327"
+                                  ]
+                },
+    "Coinbase":  {
+                     "addresses":  [
+                                       "0x503828976D22510aad0201ac7EC88293211D23Da"
+                                   ]
+                 },
+    "Kraken":  {
+                   "addresses":  [
+                                     "0x267be1C1D684F78cb4F6a176C9aF6eBf9D6cC8f0"
+                                 ]
+               },
+    "Bitfinex":  {
+                     "addresses":  [
+                                       "0x876eabf441b2ee5b5b0554fd502a8e0600950cfa"
+                                   ]
+                 }
+}
