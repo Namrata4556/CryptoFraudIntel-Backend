@@ -8,7 +8,7 @@ import joblib
 import pandas as pd
 import numpy as np
 
-from xgboost import XGBClassifier
+from xgboost import Booster
 
 
 # ============================================================
@@ -52,13 +52,11 @@ if not os.path.exists(FEATURE_PATH):
 
 print("Loading XGBoost model...")
 
-xgb_model = XGBClassifier()
+xgb_model = Booster()
 
 xgb_model.load_model(
     MODEL_PATH
 )
-
-
 # ============================================================
 # LOAD FEATURES
 # ============================================================
@@ -179,24 +177,25 @@ def predict_xgboost(features):
         "Running XGBoost prediction..."
     )
 
-    prediction = int(
+    # Convert input into XGBoost DMatrix
+    import xgboost as xgb
+
+    dmatrix = xgb.DMatrix(
+        input_df,
+        feature_names=FEATURES
+    )
+
+    # For binary:logistic, Booster.predict()
+    # directly returns the fraud probability
+    fraud_probability = float(
         xgb_model.predict(
-            input_df
+            dmatrix
         )[0]
     )
 
-
-    # ========================================================
-    # PROBABILITY
-    # ========================================================
-
-    probabilities = xgb_model.predict_proba(
-        input_df
-    )
-
-
-    fraud_probability = float(
-        probabilities[0][1]
+    # Convert probability into 0/1 prediction
+    prediction = int(
+        fraud_probability >= 0.50
     )
 
 
